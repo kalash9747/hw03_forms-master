@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% if edit%}
+Редактирование поста
+{%else%}
+Новый пост
+{%endif%}
+{% endblock %}
+
+
+{%block content%}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_table }}
+  {% if edit%}
+  <input type="submit" value="Сохранить">
+  {%else%}
+  <input type="submit" value="Добавить">
+  {%endif%}
+ 
+</form>
+
+{% endblock %}
